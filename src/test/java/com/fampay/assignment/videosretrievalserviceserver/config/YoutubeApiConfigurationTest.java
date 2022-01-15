@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class YoutubeApiConfigurationTest {
-    public YoutubeApiConfiguration ytubeApiConfig = new YoutubeApiConfiguration();;
+    public YoutubeApiConfiguration ytubeApiConfig = new YoutubeApiConfiguration();
 
     @Test
     @DisplayName("Creating new API config (setters test)")
