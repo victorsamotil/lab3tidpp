@@ -88,12 +88,18 @@ pipeline
             }
         }
         
-        stage('Frontend Test')
+         stage('Test front end')
         {
-            steps
+            when
             {
-                echo "Frontend test stage: ${TESTING_FRONTEND}"
+                expression
+                {
+                    params.TESTING_FRONTEND==true
+                }
             }
+            steps{
+                echo "Testarea frontend ${params.TESTING_FRONTEND}"
+            }    
         }
         
         /*stage('Continuous Delivery')
