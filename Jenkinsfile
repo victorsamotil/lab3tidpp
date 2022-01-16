@@ -110,7 +110,7 @@ pipeline
                 echo "Success !!!"
                 if (env.ON_SUCCESS_SEND_EMAIL)
                 {
-                     emailext(body: "Job name: ${JOB_NAME}, build number: ${BUILD_NUMBER} - Successful! Build URL: ${BUILD_URL}", subject: 'Build success', to: 'nekit228patan@gmail.com')
+                     emailext(body: "Job name: ${JOB_NAME}, build number: ${BUILD_NUMBER} - Successful! Build URL: ${BUILD_URL}", subject: 'Build success', to: 'victor.samotil1@gmail.com')
                 }
                 if (params.CLEAN_WORKSPACE == true)
                 {
@@ -133,7 +133,7 @@ pipeline
                 echo "Your code sucks !!!"
                 if (env.ON_FAILURE_SEND_EMAIL)
                 {
-                     emailext(body: "Job name: ${JOB_NAME}, build number: ${BUILD_NUMBER} - Failure! Build URL: ${BUILD_URL}", subject: 'Build fail', to: 'nekit228patan@gmail.com')
+                     emailext(body: "Job name: ${JOB_NAME}, build number: ${BUILD_NUMBER} - Failure! Build URL: ${BUILD_URL}", subject: 'Build fail', to: 'victor.samotil1@gmail.com')
                 }
                 cleanWs()
                 echo "Workspace has been cleaned."
