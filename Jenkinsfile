@@ -96,7 +96,7 @@ pipeline
             }
         }    
         
-        stage('Continuous Delivery')
+        /*stage('Continuous Delivery')
         {
             steps
             {
@@ -117,7 +117,7 @@ pipeline
                 echo "SSH into VBox..."
                 bat "ssh -p 1337 victor@127.0.0.1 \"cd /home/victor/tidpplab && docker-compose up -d\""
             }
-        }
+        }*/
     }
 
     post
