@@ -125,7 +125,6 @@ pipeline
         always
         {
             echo "Pipeline execution has ended."
-            bat "docker logout"
         }
             
         success
