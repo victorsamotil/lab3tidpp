@@ -106,7 +106,7 @@ pipeline
                 bat "docker tag video-service:latest victorsamotil1/lab4"
                 bat "docker login -u ${DOCKER_CREDENTIAL_USR} -p ${DOCKER_CREDENTIAL_PSW} docker.io"
                 bat "docker push victorsamotil1/lab4"
-                bat "docker rmi victorsamotil/lab4"
+                bat "docker rmi victorsamotil1/lab4"
             }
         }
         
