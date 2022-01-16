@@ -16,6 +16,7 @@ pipeline
     environment
     {
         GOOGLE_API_KEY = "AIzaSyA-DCgVotefXQ9QVG3MvMsnJvKBzNkHi50"
+        DOCKER_CREDENTIAL = credentials('dockerhub-login')
         ON_FAILURE_SEND_EMAIL = true
         ON_SUCCESS_SEND_EMAIL = true
         TESTING_FRONTEND = false
@@ -94,13 +95,37 @@ pipeline
                 echo "Frontend test stage: ${TESTING_FRONTEND}"
             }
         }
+        
+        stage('Continuous Delivery')
+        {
+            steps
+            {
+                echo "${DOCKER_CREDENTIAL_USR}"
+                echo "${DOCKER_CREDENTIAL_PSW}"
+                bat "docker build -t video-service ."
+                bat "docker tag video-service:latest victorsamotil1/lab4"
+                bat "docker login -u ${DOCKER_CREDENTIAL_USR} -p ${DOCKER_CREDENTIAL_PSW} docker.io"
+                bat "docker push victorsamotil1/lab4"
+                bat "docker rmi victorsamotil/lab4"
+            }
+        }
+        
+        stage('Continuous Deployment')
+        {
+            steps
+            {
+                echo "SSH into VBox..."
+                bat "ssh -p 1337 victor@127.0.0.1 \"cd /home/victor/tidpplab && docker-compose up -d\""
+            }
+        }
     }
-    
+
     post
     {
         always
         {
             echo "Pipeline execution has ended."
+            bat "docker logout"
         }
             
         success
