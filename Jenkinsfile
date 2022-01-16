@@ -28,7 +28,7 @@ pipeline
             steps 
             {
                 // Get some code from a GitHub repository
-                git poll: false, url: 'https://github.com/ProNike2000/videos-retrieval-service'
+                git poll: false, url: 'https://github.com/victorsamotil/lab3tidpp.git'
 
                 // Run Maven on a Unix agent.
                 // "mvn -Dmaven.test.failure.ignore=true clean package"
